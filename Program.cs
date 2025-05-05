@@ -6,6 +6,7 @@ foreach (var i in arr)
 
 bool IsPalindrome(int x)
 {
+    if(x < 0) return false;
     string s = x.ToString();
     for (int i = 0; i < s.Length/2; i++)
     {
