@@ -1,4 +1,4 @@
-﻿int[] arr = { 121, -121 };
+﻿int[] arr = { 121, -121, 56765, 11111112 };
 foreach (var i in arr)
 {
     Console.WriteLine(IsPalindrome(i));
@@ -7,10 +7,19 @@ foreach (var i in arr)
 bool IsPalindrome(int x)
 {
     if(x < 0) return false;
-    string s = x.ToString();
-    for (int i = 0; i < s.Length/2; i++)
+    int len = 1;
+    int temp = x;
+    while(temp > 10)
     {
-        if (s[i] != s[s.Length - 1 - i]) return false;
+        temp /= 10;
+        len++;
+    }
+    temp = x;
+    for(int i = 0; i < len/2; i++)
+    {
+        int divisor = (int)Math.Pow(10, len - 1 - i);
+        if (temp % 10 != (x/divisor)%10) return false;
+        temp /= 10;
     }
     return true;
 }
