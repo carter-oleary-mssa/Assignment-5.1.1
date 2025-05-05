@@ -1,4 +1,4 @@
-﻿int[] arr = { 121, -121, 56765, 11111112 };
+﻿int[] arr = { 121, -121, 56765, 11111112, 0 };
 foreach (var i in arr)
 {
     Console.WriteLine(IsPalindrome(i));
@@ -9,7 +9,7 @@ bool IsPalindrome(int x)
     if(x < 0) return false;
     int len = 1;
     int temp = x;
-    while(temp > 10)
+    while(temp >= 10)
     {
         temp /= 10;
         len++;
